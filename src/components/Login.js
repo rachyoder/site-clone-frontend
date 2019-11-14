@@ -29,6 +29,7 @@ export default class Login extends React.Component {
         Axios.post('http://127.0.0.1:8000/api/login', this.state)
             .then(res => {
                 this.props.token(res.data.token);
+                localStorage.setItem('token', res.data.token);
             })
     }
 
@@ -39,27 +40,32 @@ export default class Login extends React.Component {
                     <div className="col-md-8">
                         <h1 className="text-center">Login:</h1>
                         <form onSubmit={this.handleSubmit}>
-                            <label>
-                                Email:
+                            <div className="form-group">
+                                <label htmlFor="emailLogin">
+                                    Email:
+                                </label>
                                 <Input
                                     name="email"
+                                    id="emailLogin"
                                     field={this.state.email}
                                     onChange={this.handleChange}
                                 />
-                            </label>
-                            <label>
-                                Password:
+                                <label htmlFor="passwordLogin">
+                                    Password:
+                                </label>
                                 <Input
                                     name="password"
+                                    id="passwordLogin"
                                     field={this.state.password}
                                     onChange={this.handleChange}
                                 />
-                            </label>
-                            <input
-                                type="submit"
-                                name="submit"
-                                onSubmit={this.handleSubmit}
-                            />
+                                <button
+                                    className="btn btn-secondary"
+                                    type="submit"
+                                    name="submit"
+                                    onSubmit={this.handleSubmit}
+                                >Log In</button>
+                            </div>
                         </form>
                     </div>
                 </div>
