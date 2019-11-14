@@ -1,5 +1,6 @@
 import React from 'react';
 import Input from './Input';
+import Axios from 'axios';
 
 export default class Login extends React.Component {
     constructor(props) {
@@ -17,15 +18,18 @@ export default class Login extends React.Component {
         const target = event.target;
         const value = target.value;
         const name = target.name;
-    
+
         this.setState({
-          [name]: value
+            [name]: value
         });
     }
 
     handleSubmit(event) {
-        alert('Fetching login token');
         event.preventDefault();
+        Axios.post('http://127.0.0.1:8000/api/login', this.state)
+            .then(res => {
+                this.props.token(res.data.token);
+            })
     }
 
     render() {
@@ -37,13 +41,25 @@ export default class Login extends React.Component {
                         <form onSubmit={this.handleSubmit}>
                             <label>
                                 Email:
-                                <Input name="email" field={this.state.email} onChange={this.handleChange} />
+                                <Input
+                                    name="email"
+                                    field={this.state.email}
+                                    onChange={this.handleChange}
+                                />
                             </label>
                             <label>
                                 Password:
-                                <Input name="password" field={this.state.password} onChange={this.handleChange} />
+                                <Input
+                                    name="password"
+                                    field={this.state.password}
+                                    onChange={this.handleChange}
+                                />
                             </label>
-                            <input type="submit" name="submit" onSubmit={this.handleSubmit} />
+                            <input
+                                type="submit"
+                                name="submit"
+                                onSubmit={this.handleSubmit}
+                            />
                         </form>
                     </div>
                 </div>
