@@ -38,37 +38,45 @@ export default class Login extends React.Component {
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-md-8">
-                        <h1 className="text-center">Login:</h1>
-                        <form onSubmit={this.handleSubmit}>
-                            <div className="form-group">
-                                <label htmlFor="emailLogin">
-                                    Email:
-                                </label>
-                                <Input
-                                    name="email"
-                                    type="email"
-                                    id="emailLogin"
-                                    field={this.state.email}
-                                    onChange={this.handleChange}
-                                />
-                                <label htmlFor="passwordLogin">
-                                    Password:
-                                </label>
-                                <Input
-                                    name="password"
-                                    type="password"
-                                    id="passwordLogin"
-                                    field={this.state.password}
-                                    onChange={this.handleChange}
-                                />
-                                <button
-                                    className="btn btn-secondary"
-                                    type="submit"
-                                    name="submit"
-                                    onSubmit={this.handleSubmit}
-                                >Log In</button>
+                        <h1 className="text-center display-4 my-3">Welcome To Dumpster</h1>
+                        <div className="card mt-3">
+                            <div className="card-header">
+                                <h6 className="text-center">Log In Here</h6>
                             </div>
-                        </form>
+                            <div className="card-body">
+
+                                <form onSubmit={this.handleSubmit}>
+                                    <div className="form-group">
+                                        <label htmlFor="emailLogin">
+                                            Email:
+                                </label>
+                                        <Input
+                                            name="email"
+                                            type="email"
+                                            id="emailLogin"
+                                            field={this.state.email}
+                                            onChange={this.handleChange}
+                                        />
+                                        <label htmlFor="passwordLogin">
+                                            Password:
+                                </label>
+                                        <Input
+                                            name="password"
+                                            type="password"
+                                            id="passwordLogin"
+                                            field={this.state.password}
+                                            onChange={this.handleChange}
+                                        />
+                                        <button
+                                            className="btn btn-primary mt-4"
+                                            type="submit"
+                                            name="submit"
+                                            onSubmit={this.handleSubmit}
+                                        >Log In</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

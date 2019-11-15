@@ -9,7 +9,7 @@ export default class Feed extends React.Component {
 
     componentDidMount() {
         Axios({
-            url: '/users',
+            url: '/posts',
             method: 'get',
             baseURL: 'http://127.0.0.1:8000/api/',
             headers: {'Authorization': 'Bearer ' + this.props.token}
