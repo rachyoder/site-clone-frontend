@@ -46,6 +46,7 @@ export default class Login extends React.Component {
                                 </label>
                                 <Input
                                     name="email"
+                                    type="email"
                                     id="emailLogin"
                                     field={this.state.email}
                                     onChange={this.handleChange}
@@ -55,6 +56,7 @@ export default class Login extends React.Component {
                                 </label>
                                 <Input
                                     name="password"
+                                    type="password"
                                     id="passwordLogin"
                                     field={this.state.password}
                                     onChange={this.handleChange}
