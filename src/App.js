@@ -72,7 +72,7 @@ class App extends React.Component {
 
 				<Switch>
 					<Route path='/register'>
-						<Register />
+						<Register setToken={this.setTokenState}/>
 					</Route>
 					<Route path='/'>
 						{loginCheck}

@@ -1,5 +1,9 @@
 import React from 'react';
 import Axios from 'axios';
+import {
+
+	Link
+} from 'react-router-dom';
 
 export default class Register extends React.Component {
     constructor(props) {
@@ -28,6 +32,7 @@ export default class Register extends React.Component {
         Axios.post('http://127.0.0.1:8000/api/register', this.state)
             .then(res => {
                 localStorage.setItem('token', res.data.token);
+                this.props.setToken(res.data.token);
             })
         event.preventDefault();
     }
@@ -74,7 +79,11 @@ export default class Register extends React.Component {
                             className="btn btn-primary mt-3"
                             type="submit"
                             name="submit"
-                        >Register</button>
+                        >
+                            <Link to="/">
+                                Register
+                            </Link>
+                        </button>
                     </div>
                 </form>
             </div>
